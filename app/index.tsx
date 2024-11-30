@@ -18,6 +18,7 @@ export default function Index() {
     const result = await LocalAuthentication.authenticateAsync({
       promptMessage: 'Authenticate with Face ID',
       fallbackLabel: 'Use Passcode',
+      disableDeviceFallback: true
     });
 
     if (result.success) {
