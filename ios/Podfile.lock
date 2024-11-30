@@ -231,6 +231,8 @@ PODS:
     - ExpoModulesCore
   - ExpoLinking (7.0.3):
     - ExpoModulesCore
+  - ExpoLocalAuthentication (15.0.1):
+    - ExpoModulesCore
   - ExpoModulesCore (2.0.6):
     - DoubleConversion
     - glog
@@ -1880,7 +1882,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated (3.16.2):
+  - RNReanimated (3.16.3):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1900,10 +1902,10 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/reanimated (= 3.16.2)
-    - RNReanimated/worklets (= 3.16.2)
+    - RNReanimated/reanimated (= 3.16.3)
+    - RNReanimated/worklets (= 3.16.3)
     - Yoga
-  - RNReanimated/reanimated (3.16.2):
+  - RNReanimated/reanimated (3.16.3):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1923,9 +1925,9 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/reanimated/apple (= 3.16.2)
+    - RNReanimated/reanimated/apple (= 3.16.3)
     - Yoga
-  - RNReanimated/reanimated/apple (3.16.2):
+  - RNReanimated/reanimated/apple (3.16.3):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1946,7 +1948,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated/worklets (3.16.2):
+  - RNReanimated/worklets (3.16.3):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2034,6 +2036,7 @@ DEPENDENCIES:
   - ExpoHead (from `../node_modules/expo-router/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoLinking (from `../node_modules/expo-linking/ios`)
+  - ExpoLocalAuthentication (from `../node_modules/expo-local-authentication/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
   - ExpoSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - ExpoSymbols (from `../node_modules/expo-symbols/ios`)
@@ -2150,6 +2153,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-keep-awake/ios"
   ExpoLinking:
     :path: "../node_modules/expo-linking/ios"
+  ExpoLocalAuthentication:
+    :path: "../node_modules/expo-local-authentication/ios"
   ExpoModulesCore:
     :path: "../node_modules/expo-modules-core"
   ExpoSplashScreen:
@@ -2315,6 +2320,7 @@ SPEC CHECKSUMS:
   ExpoHead: a623db43433938dcfbd6a38c27381055d01a0f3a
   ExpoKeepAwake: 783e68647b969b210a786047c3daa7b753dcac1f
   ExpoLinking: a8332a219379ba80f8e612d5a5de4a3da446886e
+  ExpoLocalAuthentication: fb519b5d39df0cc216e43fef3cc8e2db1930a01e
   ExpoModulesCore: bb3f481a7912159f2289a653e4195146170f0a00
   ExpoSplashScreen: 43692d041bf848883410ed9d8836871ca5cf4d6a
   ExpoSymbols: 81d7f433d7a7b20658029eae524a4fa93627159e
@@ -2384,7 +2390,7 @@ SPEC CHECKSUMS:
   ReactCodegen: ae99a130606068ed40d1d9c0d5f25fda142a0647
   ReactCommon: 89c87b343deacc8610b099ac764848f0ce937e3e
   RNGestureHandler: fc5ce5bf284640d3af6431c3a5c3bc121e98d045
-  RNReanimated: df96d71c9d7deeecb980a54d1f15bb17f43952a7
+  RNReanimated: 006a5d3961bf09c1e96d62ed436e02b2e43b89bb
   RNScreens: 27587018b2e6082f5172b1ecf158c14a0e8842d6
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 3deb2471faa9916c8a82dda2a22d3fba2620ad37
