@@ -14,10 +14,13 @@ Luckily, smartphones already provide biometric authentication that is strong eno
 No. You are sharing your biometric information with Apple or Google. If you are already using biometric authentication to unlock your phone or use any other app on your phone, you're already set up! You are only giving Pulse permission to use that existing authentication.
 
 ## Am I sharing my real identity with you?
-No, we only see THAT you are a human, not WHICH human you are when you authenticate to post. You may have shared that information with Apple or Google, but we aren't requesting it and they aren't sharing it with Pulse.
+No. The Pulse app only sees THAT you are a human, not WHICH human you are when you authenticate to post. You may have shared that information with Apple or Google, but the app isn't requesting it and they aren't sharing it.
 
 ## Can I post as a human from a device other than an iPhone or Android smartphone?
-No, web browsers can't provide the attestation necessary to ensure that local biometric authentication is actually happening.  Without Apple App Attestation or Google SafetyNet, anyone could make a Pulse client and skip performing local biometric auth to post as a human.  The only way the server can verify that this didn't happen is by verifying the client app the request is coming from with Apple or Google.  The web browser simply can't do this.
+No. Web browsers can't provide the attestation necessary to ensure that local biometric authentication is actually happening.  Without Apple App Attestation or Google SafetyNet, anyone could make a Pulse client and skip performing local biometric auth to post as a human.  The only way the server can verify that this didn't happen is by verifying the client app the request is coming from with Apple or Google.  The web browser simply can't do this.
+
+## Compared to Bluesky, what additional information am I sharing with Pulse?
+Pulse only needs to know whether to use Apple or Google for post verification.  No other details are needed or requested.
 
 ## Can I post as a bot on my human account if I want to use a web browser and not verify?
 Maybe that's something that could be supported, but not for now.
