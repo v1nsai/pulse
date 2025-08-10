@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View, FlatList, StyleSheet, ActivityIndicator } from 'react-native'
 import PostItem from '@/components/PostItem'
+import { useDarkMode } from '@/app/DarkModeContext';
 
 const BACKEND_URL = 'https://jsonplaceholder.typicode.com'
 
@@ -13,6 +14,7 @@ type Post = {
 }
 
 export default function Feed() {
+  const { isDarkMode } = useDarkMode();
   const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(1)
@@ -48,6 +50,16 @@ export default function Feed() {
     return <ActivityIndicator style={styles.loader} />
   }
 
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: isDarkMode ? '#000' : '#f5f5f5',
+    },
+    loader: {
+      marginVertical: 20,
+    },
+  });
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -67,13 +79,3 @@ export default function Feed() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  loader: {
-    marginVertical: 20,
-  },
-})

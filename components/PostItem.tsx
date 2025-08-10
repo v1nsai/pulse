@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { DarkModeContext } from '@/app/DarkModeContext';
 
 type PostItemProps = {
   title: string;
@@ -9,6 +10,11 @@ type PostItemProps = {
 };
 
 export default function PostItem({ title, content, author, avatarUrl }: PostItemProps) {
+  const darkModeContext = useContext(DarkModeContext);
+  const isDarkMode = darkModeContext?.isDarkMode ?? false;
+
+  const styles = getStyles(isDarkMode);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -21,40 +27,43 @@ export default function PostItem({ title, content, author, avatarUrl }: PostItem
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 10,
-    marginVertical: 5,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 10,
-  },
-  author: {
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  content: {
-    fontSize: 14,
-    color: '#333',
-  },
-});
+const getStyles = (isDarkMode: boolean) =>
+  StyleSheet.create({
+    container: {
+      padding: 10,
+      marginVertical: 5,
+      backgroundColor: isDarkMode ? '#333' : '#fff',
+      borderRadius: 8,
+      shadowColor: isDarkMode ? '#fff' : '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 2,
+    },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 8,
+    },
+    avatar: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      marginRight: 10,
+    },
+    author: {
+      fontWeight: 'bold',
+      fontSize: 16,
+      color: isDarkMode ? '#fff' : '#000',
+    },
+    title: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      marginBottom: 5,
+      color: isDarkMode ? '#fff' : '#000',
+    },
+    content: {
+      fontSize: 14,
+      color: isDarkMode ? '#ccc' : '#333',
+    },
+  });
