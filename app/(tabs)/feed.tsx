@@ -1,62 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { View, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
-import PostItem from '@/components/PostItem';
+import React, { useState, useEffect } from 'react'
+import { View, FlatList, StyleSheet, ActivityIndicator } from 'react-native'
+import PostItem from '@/components/PostItem'
 
 const BACKEND_URL = 'https://jsonplaceholder.typicode.com'
 
 type Post = {
-  id: string | number;
-  title: string;
-  content: string;
-  author: string;
-  avatarUrl: string;
-};
+  id: string | number
+  title: string
+  body: string
+  author: string
+  avatarUrl: string
+}
 
 export default function Feed() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+  const [posts, setPosts] = useState<Post[]>([])
+  const [loading, setLoading] = useState(false)
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    fetchPosts()
+  }, [])
 
   const fetchPosts = async () => {
-    if (loading || !hasMore) return;
+    if (loading || !hasMore) return
 
-    setLoading(true);
+    setLoading(true)
     try {
-      const response = await fetch(`${BACKEND_URL}/posts/`);
-      const data = await response.json();
+      const response = await fetch(`${BACKEND_URL}/posts/`)
+      const data = await response.json()
 
       if (data.length === 0) {
-        setHasMore(false);
+        setHasMore(false)
       } else {
-        setPosts((prevPosts) => [...prevPosts, ...data]);
-        setPage((prevPage) => prevPage + 1);
+        setPosts((prevPosts) => [...prevPosts, ...data])
+        setPage((prevPage) => prevPage + 1)
       }
     } catch (error) {
-      console.error('Error fetching posts:', error);
+      console.error('Error fetching posts:', error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   const renderFooter = () => {
-    if (!loading) return null;
-    return <ActivityIndicator style={styles.loader} />;
-  };
+    if (!loading) return null
+    return <ActivityIndicator style={styles.loader} />
+  }
 
   return (
     <View style={styles.container}>
       <FlatList
         data={posts}
-        keyExtractor={(item, index) => `${item.id}-${index}`}
         renderItem={({ item }) => (
           <PostItem
             title={item.title}
-            content={item.content}
+            content={item.body}
             author={item.author}
             avatarUrl={item.avatarUrl}
           />
@@ -66,7 +65,7 @@ export default function Feed() {
         ListFooterComponent={renderFooter}
       />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -77,4 +76,4 @@ const styles = StyleSheet.create({
   loader: {
     marginVertical: 20,
   },
-});
+})
