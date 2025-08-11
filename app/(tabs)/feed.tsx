@@ -6,6 +6,7 @@ import { useDarkMode } from '@/app/DarkModeContext';
 const BACKEND_URL = 'https://jsonplaceholder.typicode.com'
 
 type Post = {
+  url: string | undefined;
   id: string | number
   title: string
   body: string
@@ -70,6 +71,7 @@ export default function Feed() {
             content={item.body}
             author={item.author}
             avatarUrl={item.avatarUrl}
+            url={item.url}
           />
         )}
         onEndReached={fetchPosts}
