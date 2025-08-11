@@ -5,11 +5,8 @@ import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect, useContext } from 'react'
 import 'react-native-reanimated'
-import { Settings } from 'react-native'
-
-import { useColorScheme } from '@/components/useColorScheme'
+import '../global.css'
 import * as React from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { DarkModeProvider, DarkModeContext } from './DarkModeContext'
 
 export {

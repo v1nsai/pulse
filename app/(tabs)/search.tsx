@@ -1,21 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
 export default function Search() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Search Page</Text>
+    <View className="flex-1 justify-center items-center">
+      <Text className="text-lg">Search Page</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 18,
-  },
-});
