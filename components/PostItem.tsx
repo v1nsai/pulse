@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, FlatList } from 'react-native';
 import { DarkModeContext } from '@/app/DarkModeContext';
 
 type PostItemProps = {
@@ -8,9 +8,26 @@ type PostItemProps = {
   author: string;
   avatarUrl?: string;
   url?: string;
+  images?: string[];
 };
 
-export default function PostItem({ title, content, author, avatarUrl, url }: PostItemProps) {
+function getImageType(base64: string): string | null {
+  const signature = atob(base64.substring(0, 8))
+    .split("")
+    .map((char) => char.charCodeAt(0).toString(16).padStart(2, "0"))
+    .join(" ");
+
+  if (signature.startsWith("89 50 4e 47")) return "image/png";
+  if (signature.startsWith("ff d8 ff")) return "image/jpeg";
+  if (signature.startsWith("47 49 46 38")) return "image/gif";
+  if (signature.startsWith("42 4d")) return "image/bmp";
+  if (signature.startsWith("3c 73 76 67 20")) return "image/svg+xml";
+  if (signature.startsWith("52 49 46 46") && base64.includes("WEBP")) return "image/webp";
+
+  return null;
+}
+
+export default function PostItem({ title, content, author, avatarUrl, url, images }: PostItemProps) {
   const darkModeContext = useContext(DarkModeContext);
   const isDarkMode = darkModeContext?.isDarkMode ?? false;
   const [previewImage, setPreviewImage] = useState<string | null>(null);
@@ -67,6 +84,24 @@ export default function PostItem({ title, content, author, avatarUrl, url }: Pos
         <Image
           source={{ uri: previewImage }}
           className="w-full h-40 rounded-lg mt-2"
+        />
+      )}
+      {images && images.length > 0 && (
+        <FlatList
+          data={images}
+          horizontal
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => {
+            const type = getImageType(item);
+            return (
+              <Image
+                source={{ uri: `data:${type};base64,${item}` }}
+                className="w-full h-40 rounded-lg mt-2"
+              />
+            );
+          }}
+          showsHorizontalScrollIndicator={true}
+          className="mt-4"
         />
       )}
     </View>
