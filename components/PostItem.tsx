@@ -67,7 +67,7 @@ export default function PostItem({ title, content, author, avatarUrl, url, image
 
   return (
     <View
-      className={`p-4 my-2 rounded-lg shadow-md ${isDarkMode ? 'bg-gray-800 shadow-white' : 'bg-white shadow-black'}`}
+      className={`p-4 my-2 rounded-lg shadow-md ${isDarkMode ? 'bg-gray-800' : 'bg-white shadow-black'}`}
     >
       <View className="flex-row items-center mb-2">
         {avatarUrl && (
