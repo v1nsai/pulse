@@ -1,4 +1,10 @@
+![Expo](https://img.shields.io/badge/Expo-^49.0.0-blue)
+![React Native](https://img.shields.io/badge/React%20Native-0.72.4-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.3.3-blue)
+
 # Pulse: Social Media for Humans
+
 Pulse is a social media platform focused on humans talking to humans and clearly identified bots. Pulse uses your phone's existing biometric authentication (through Apple on iPhone or Google on Android) to verify that every post is made by a human.
 
 ## Why?
