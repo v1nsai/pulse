@@ -30,4 +30,4 @@ You can't really, but this still requires a human which makes it significantly m
 Pulse takes a lot of inspiration from Reddit with some elements of Twitter and other apps as well.  Like Reddit, posts and comments have points that are awarded through upvotes and downvotes.  Only humans will be able to vote, requiring occasional biometric auth every 5 minutes or so.  Reddit has subreddits with their own separate moderation teams, but Pulse uses tags and more centralized moderation.  You can browse by a single tag or create a tab group to browse by, which sort of resembles browsing by subreddit or multireddit on Reddit.  Tab groups can define AND/OR relationships, such as tag1 AND tag2 (only show posts with both tag1 and tag2), or tag1 OR tag2 (show posts with either tag1 or tag2).
 
 The diagram below is ugly as hell and incomplete, but it gives a good idea of the UI and UX I'm planning.  The drawio source can be found in the `/diagrams` directory.
-![Pulse UI](https://github.com/v1nsai/pulse/blob/master/diagrams/app.png)
+![Pulse UI](https://github.com/v1nsai/pulse/blob/master/diagrams/app.svg)
